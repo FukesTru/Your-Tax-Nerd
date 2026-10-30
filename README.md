@@ -38,6 +38,10 @@ client still has to send or confirm is in `VERIFY.md` (written so it can be emai
 - The home hero uses the earlier site's photos of Mike: the wide office photo on screens 960px and wider,
   the tall portrait on phones, each at its full size so it stays sharp. A higher resolution original from
   the client would make it sharper still on large retina screens.
+- Under the home hero, the earlier site's About band is back: Mike's portrait, the appointment options,
+  2 badges and the 4 numbers (999+ clients, 1,200+ returns, 10+ years, 98% retention) counting up. The
+  numbers come from the earlier site and are not confirmed: the client must confirm them (VERIFY.md
+  item 3) before go-live. They are in `public/index.html` (`data-count`) and `site.json` `stats_home`.
 - Scroll motion on every page: heading blocks build line by line, lists and grids rise one item after
   another, Mike's portrait is revealed with a wipe, the ornament draws out, the rating counts up, and the
   home hero photo drifts as the page scrolls. It plays on every visit to the home

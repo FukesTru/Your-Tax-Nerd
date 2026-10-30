@@ -112,7 +112,7 @@
 
   // Scroll motion. Lists and grids rise in one item after another, heading blocks build line by line
   // (the styles live in site.css), and the rating counts up when it arrives.
-  var STAGGER = '.grid, .check-list, .steps, .reasons, .chips, .faq, .proof-list, .doc-list, .rows, .way-list, .footer-cols';
+  var STAGGER = '.grid, .check-list, .steps, .reasons, .chips, .faq, .proof-list, .doc-list, .rows, .way-list, .footer-cols, .stats';
   document.querySelectorAll(STAGGER).forEach(function (list) {
     if (list.closest('.hero')) return;
     list.classList.remove('reveal');
@@ -126,16 +126,22 @@
     var first = el.firstElementChild;
     if (el.classList.contains('section-head') || (first && first.classList.contains('eyebrow')) || (first && first.classList.contains('ornament'))) el.classList.add('cascade');
   });
+  // Numbers count up from 0: the Google rating keeps its decimal, the home page numbers (data-count)
+  // are whole numbers with their + or % after them. Without the script they simply show their value.
   var countUp = function (el) {
-    var target = parseFloat(el.textContent);
+    var whole = el.hasAttribute('data-count');
+    var target = parseFloat(whole ? el.getAttribute('data-count') : el.textContent);
     if (isNaN(target)) return;
+    var suffix = el.getAttribute('data-suffix') || '';
+    var show = function (v) { el.textContent = (whole ? Math.round(v).toLocaleString('en-US') : v.toFixed(1)) + suffix; };
     var start = null;
     var step = function (t) {
       if (start === null) start = t;
-      var p = Math.min(1, (t - start) / 1100);
-      el.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(1);
+      var p = Math.min(1, (t - start) / (whole ? 1800 : 1100));
+      show(target * (1 - Math.pow(1 - p, 3)));
       if (p < 1) requestAnimationFrame(step);
     };
+    show(0);
     requestAnimationFrame(step);
   };
   if (!reduceMotion && 'IntersectionObserver' in window) {
@@ -143,7 +149,7 @@
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-in');
-        entry.target.querySelectorAll('.rating-score').forEach(countUp);
+        entry.target.querySelectorAll('.rating-score, [data-count]').forEach(countUp);
         io.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });

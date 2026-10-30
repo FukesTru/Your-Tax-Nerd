@@ -51,7 +51,7 @@
       "#5AAEFF"
     ],
     "font": "Montserrat (headings and buttons) and Plus Jakarta Sans (body), the same fonts as the earlier site",
-    "notes": "Client said: navy blue and gold, and wants the site to look like the earlier yourtaxnerd.com, facelifted. Kept from the earlier site: brand blue #3A69B1 header, yellow #FFC402 buttons, Montserrat and Plus Jakarta Sans, light blue bands (#EAF2FF), navy testimonial band (#0F1E3D) with the gold ornament, service cards with a blue icon tab and yellow bar, FAQ pills, the cartoon tax nerd logo. #2F5FA7 is the darker blue for small labels on light backgrounds; #5AAEFF highlights words on navy (like \"Superpower\" on the earlier site); #0A1428 is the footer and top bar. Not reused from the earlier site: its stock photos, its generated city background, and its unverified numbers (999+ clients, 1,200+ returns, 10+ years, 98% retention)."
+    "notes": "Client said: navy blue and gold, and wants the site to look like the earlier yourtaxnerd.com, facelifted. Kept from the earlier site: brand blue #3A69B1 header, yellow #FFC402 buttons, Montserrat and Plus Jakarta Sans, light blue bands (#EAF2FF), navy testimonial band (#0F1E3D) with the gold ornament, service cards with a blue icon tab and yellow bar, FAQ pills, the cartoon tax nerd logo. #2F5FA7 is the darker blue for small labels on light backgrounds; #5AAEFF highlights words on navy (like \"Superpower\" on the earlier site); #0A1428 is the footer and top bar. Not reused from the earlier site: its stock photos, its generated city background, and the \"Best Tax Advisor\" badge. Its numbers (999+ clients, 1,200+ returns, 10+ years, 98% retention) are back on the home page at the operator's request, counting up, pending the client's confirmation (VERIFY.md item 3)."
   },
   "images": [
     {
@@ -104,5 +104,12 @@
   "crm_location_id": "",
   "vercel_project": "",
   "preview_url": "https://yourtaxnerd.pages.dev",
-  "domain": "www.yourtaxnerd.com"
+  "domain": "www.yourtaxnerd.com",
+  "stats_home": {
+    "satisfied_clients": "999+",
+    "tax_returns_filed": "1,200+",
+    "years_experience": "10+",
+    "client_retention": "98%",
+    "source": "The earlier yourtaxnerd.com home page. Shown at the operator's request; the client must confirm each before go-live."
+  }
 }
