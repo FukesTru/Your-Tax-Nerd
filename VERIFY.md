@@ -52,8 +52,7 @@ Your new website is built. Before it goes live, please send us the items in Part
 29. **Local details.** The town pages mention Blackwell Street in Dover, County College of Morris in Randolph, Route 46 and Interstate 80 in Rockaway, Wharton on Dover's western border, and Denville station on NJ Transit's Morristown and Montclair-Boonton lines. Tell us if anything is off.
 
 ### Contact form and chat
-30. **Contact form.** Until your CRM form is connected, the "Send message" button opens the visitor's own email app with their message addressed to mike@yourtaxnerd.com. Is that the right email for new enquiries?
-31. **Chat.** Until your CRM chat is connected, the chat button shows your hours with Call, Text and Send a message buttons. It does not send anything by itself.
+30. **Chat greeting.** The website chat pops up the message "Hey this is Michael, shoot me a quick text here (I respond in 2 minutes)." Can you always reply within 2 minutes? If not, we suggest something like "Hi, this is Mike. Text me your question and I will get back to you soon."
 
 ### Privacy policy and terms
-32. Both pages are your current policies, kept nearly word for word, with these fixes: "Your Text Nerd" corrected to "Your Tax Nerd", Sprint removed from the carrier list, the online shopping section removed (the site sells nothing), "booked an appointment" changed to "contacted us" (the site does not book), New Jersey named as the governing law, and a short section added about tax return information. Please read both and confirm.
+31. Both pages are your current policies, kept nearly word for word, with these fixes: "Your Text Nerd" corrected to "Your Tax Nerd", Sprint removed from the carrier list, the online shopping section removed (the site sells nothing), "booked an appointment" changed to "contacted us" (the site does not book), New Jersey named as the governing law, and a short section added about tax return information. Please read both and confirm.

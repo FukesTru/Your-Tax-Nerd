@@ -75,8 +75,8 @@
   ],
   "must_keep": "Client note: also owns www.yourtaxnerds.com and offered it if needed. At go-live, point it at the site as a permanent redirect to https://www.yourtaxnerd.com.",
   "integrations": {
-    "form_embed": "",
-    "chat_widget": "",
+    "form_embed": "<iframe\n    src=\"https://api.leadconnectorhq.com/widget/form/cP3bKkWs5utwZ7RFTdt2\"\n    style=\"width:100%;height:100%;border:none;border-radius:10px\"\n    id=\"inline-cP3bKkWs5utwZ7RFTdt2\"\n    data-layout=\"{'id':'INLINE'}\"\n    data-trigger-type=\"alwaysShow\"\n    data-trigger-value=\"\"\n    data-activation-type=\"alwaysActivated\"\n    data-activation-value=\"\"\n    data-deactivation-type=\"neverDeactivate\"\n    data-deactivation-value=\"\"\n    data-form-name=\"Website Form (Your Tax Nerd)\"\n    data-height=\"540\"\n    data-layout-iframe-id=\"inline-cP3bKkWs5utwZ7RFTdt2\"\n    data-form-id=\"cP3bKkWs5utwZ7RFTdt2\"\n    data-cookie-consent=\"true\"\n    data-cookie-consent-provider=\"auto\"\n    title=\"Website Form (Your Tax Nerd)\"\n    \n        >\n</iframe>\n<script src=\"https://link.msgsndr.com/js/form_embed.js\"></script>",
+    "chat_widget": "<script src=\"https://widgets.leadconnectorhq.com/loader.js\" data-resources-url=\"https://widgets.leadconnectorhq.com/chat-widget/loader.js\" data-widget-id=\"6ae4721a86e51a26e0fdb76d\"></script>",
     "review_link": ""
   },
   "crm_location_id": "",

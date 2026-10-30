@@ -55,7 +55,7 @@
   --radius: 12px;
   --shadow: 0 1px 2px rgba(13, 22, 41, 0.06), 0 10px 30px rgba(13, 22, 41, 0.08);
   --header-h: 72px;
-  --dock-size: 60px;
+  --dock-size: 58px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -251,7 +251,7 @@ strong { font-weight: 600; }
 .mobile-sub { display: none; padding: 0 0 12px 12px; }
 .mobile-group.is-open .mobile-sub { display: block; }
 .mobile-menu .mobile-sub a { padding: 10px 0; font-weight: 500; font-size: 1rem; color: var(--ink); }
-.mobile-menu-actions { display: grid; gap: 12px; padding: 28px 0 calc(var(--dock-size) + 64px + env(safe-area-inset-bottom)); }
+.mobile-menu-actions { display: grid; gap: 12px; padding: 28px 0 calc(var(--dock-size) + 168px + env(safe-area-inset-bottom)); }
 .mobile-menu-actions .btn { width: 100%; }
 @media (min-width: 1180px) { .mobile-menu { display: none; } }
 
@@ -446,23 +446,9 @@ strong { font-weight: 600; }
 .section:not(.section--cream) .form-card { background: var(--cream); }
 .form-card h3 { margin-bottom: 6px; }
 .form-card .form-intro { color: var(--muted); margin-bottom: 24px; }
-.form-grid { display: grid; gap: 18px; }
-@media (min-width: 640px) { .form-grid { grid-template-columns: 1fr 1fr; } .form-grid .full { grid-column: 1 / -1; } }
-.field label { display: block; font-weight: 600; font-size: 0.9375rem; color: var(--navy); margin-bottom: 8px; }
-.field label .opt { font-weight: 400; color: var(--muted); }
-.field input, .field select, .field textarea {
-  width: 100%; min-height: 52px; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: var(--radius);
-  background: var(--white); font: 400 1rem/1.4 var(--font-body); color: var(--ink);
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.field textarea { min-height: 132px; resize: vertical; }
-.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--navy) 50%), linear-gradient(135deg, var(--navy) 50%, transparent 50%); background-position: calc(100% - 22px) 23px, calc(100% - 16px) 23px; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 44px; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(201, 161, 59, 0.45); }
-.form-note { font-size: var(--fs-small); color: var(--muted); line-height: 1.55; }
-.form-actions { display: grid; gap: 14px; margin-top: 4px; }
-.form-actions .btn { width: 100%; }
-.form-status { display: none; padding: 16px; border-radius: var(--radius); background: var(--gold-soft); color: var(--ink); font-size: 0.9375rem; }
-.form-status.is-visible { display: block; }
+.form-embed { min-height: 600px; }
+@media (max-width: 639px) { .form-card { padding: 20px 12px; } .form-card .form-intro { padding: 0 8px; margin-bottom: 12px; } }
+.form-embed iframe { display: block; width: 100%; min-height: 540px; }
 
 /* Closing call to action */
 .cta-final { text-align: center; }
@@ -507,47 +493,28 @@ strong { font-weight: 600; }
   -webkit-mask-image: linear-gradient(to top, #000 0%, #000 45%, transparent 100%);
   mask-image: linear-gradient(to top, #000 0%, #000 45%, transparent 100%);
 }
-.dock-btn, .chat-launcher {
-  position: fixed; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 70;
+/* Same size and level as the CRM chat button (58px, 20px from the bottom and side), so the three read as one row. */
+.dock-btn {
+  position: fixed; bottom: 20px; z-index: 2147483647;
   display: grid; place-items: center; width: var(--dock-size); height: var(--dock-size); border-radius: 50%;
   border: 0; padding: 0; cursor: pointer; text-decoration: none;
   box-shadow: 0 6px 18px rgba(13, 22, 41, 0.22);
   transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
 }
-.dock-btn .icon, .chat-launcher .icon { width: 26px; height: 26px; }
-.dock-btn:active, .chat-launcher:active { transform: scale(0.96); }
+.dock-btn .icon { width: 26px; height: 26px; }
+.dock-btn:active { transform: scale(0.96); }
 .dock-call { left: 20px; background: var(--navy); color: var(--white); }
 .dock-contact { left: 50%; margin-left: calc(var(--dock-size) / -2); background: var(--gold); color: var(--navy); }
-.chat-launcher { right: 20px; background: var(--navy); color: var(--white); }
-.dock-call:hover, .chat-launcher:hover { background: #22345C; color: var(--white); }
+.dock-call:hover { background: #22345C; color: var(--white); }
 .dock-contact:hover { background: var(--gold-hover); color: var(--navy); }
+/* While the CRM chat window is open it fills the bottom of the screen; the call and contact buttons step aside. */
+html:has(chat-widget[data-active="true"]) .dock-btn, html:has(chat-widget[data-active="true"]) .dock-blur { display: none; }
 @media (max-width: 1179px) {
   .site-footer { padding-bottom: calc(var(--dock-size) + 72px + env(safe-area-inset-bottom)); }
 }
 @media (min-width: 1180px) {
   .dock-blur, .dock-btn { display: none; }
-  .chat-launcher { right: 28px; bottom: 28px; }
 }
-
-/* Built-in chat (until the CRM chat widget is supplied). It sends nothing anywhere. */
-.chat-panel {
-  position: fixed; right: 20px; bottom: calc(var(--dock-size) + 34px + env(safe-area-inset-bottom)); z-index: 80;
-  width: min(380px, calc(100vw - 40px)); background: var(--white); border-radius: var(--radius);
-  box-shadow: 0 20px 50px rgba(13, 22, 41, 0.28); overflow: hidden;
-  opacity: 0; visibility: hidden; transform: translateY(8px);
-  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0.2s;
-}
-.chat-panel.is-open { opacity: 1; visibility: visible; transform: none; }
-@media (min-width: 1180px) { .chat-panel { right: 28px; bottom: 104px; } }
-.chat-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--navy); color: var(--white); padding: 16px 18px; }
-.chat-head .chat-name { font-family: var(--font-head); font-size: 1.125rem; font-weight: 600; margin: 0; color: var(--white); }
-.chat-head .chat-hours { font-size: 0.8125rem; color: var(--on-navy-muted); margin: 2px 0 0; }
-.chat-close { display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: var(--white); cursor: pointer; }
-.chat-close .icon { width: 20px; height: 20px; }
-.chat-body { padding: 18px; }
-.chat-bubble { background: var(--cream); border-radius: var(--radius); padding: 14px 16px; font-size: 0.96875rem; color: var(--ink); margin-bottom: 16px; }
-.chat-actions { display: grid; gap: 10px; }
-.chat-actions .btn { width: 100%; min-height: 52px; }
 
 /* Scroll motion. Content is visible without JavaScript; the hidden start state only applies once the script runs. */
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); transition-delay: calc(var(--d, 0) * 90ms); }
@@ -560,15 +527,6 @@ strong { font-weight: 600; }
 
 /* 404 */
 .notfound { padding: var(--section) 0; }
-
-/* Phone: keep the whole form shorter than the space between the header and the round buttons. */
-@media (max-width: 639px) {
-  .form-grid { gap: 14px; }
-  .field label { margin-bottom: 6px; }
-  .field textarea { min-height: 96px; }
-  .form-note { font-size: 0.8125rem; line-height: 1.5; }
-}
-
 /* Home hero: Mike's photo behind the headline. On a phone it fills the hero under a deep navy wash;
    from 960px it fills the right half and fades into the navy on the left, so the text always reads. */
 .hero { isolation: isolate; }

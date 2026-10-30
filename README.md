@@ -22,9 +22,11 @@ client still has to send or confirm is in `VERIFY.md` (written so it can be emai
 - Hosting: built for Cloudflare Pages (project `yourtaxnerd`, no build command, output directory
   `public`, preview `https://yourtaxnerd.pages.dev`). `public/_headers` keeps the preview out of
   search engines. `vercel.json` is kept from the template in case the site moves to Vercel.
-- The contact form and chat are built in until the CRM pieces arrive. The form opens the visitor's
-  email app addressed to mike@yourtaxnerd.com; the chat only offers Call, Text and Message buttons.
-  When `integrations` in `site.json` is filled in, replace both on every page.
+- The form and the chat are the CRM (LeadConnector) embeds from `site.json` `integrations`, used
+  character for character: the form inside every page's contact section, the chat widget once per
+  page inside the footer markers. The call and contact round buttons on phones are sized and placed
+  to match the CRM chat button (58px, 20px from the bottom), sit above its greeting layer, and hide
+  while the chat window is open.
 - The header uses a typographic wordmark and a glasses mark because no logo file was supplied.
   Replace it, and `favicon.png`, `apple-touch-icon.png` and `og-image.png`, when the logo arrives.
 - The home hero uses Mike's portrait from the current website as its background, with an opening

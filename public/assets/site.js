@@ -1,5 +1,5 @@
-// Shared behaviour for every page: header, menus, contact scrolling, built-in chat, scroll motion,
-// and the built-in contact form (until the CRM form embed replaces it).
+// Shared behaviour for every page: header, menus, contact scrolling and scroll motion.
+// The form and the chat are the CRM embeds and run their own scripts.
 (function () {
   var doc = document.documentElement;
   var header = document.querySelector('.site-header');
@@ -55,26 +55,10 @@
   });
   document.addEventListener('click', function (e) { if (!e.target.closest('.nav-item')) closeDropdowns(); });
 
-  // Built-in chat.
-  var chatPanel = document.querySelector('.chat-panel');
-  var chatLauncher = document.querySelector('.chat-launcher');
-  var setChat = function (open) {
-    if (!chatPanel) return;
-    chatPanel.classList.toggle('is-open', open);
-    chatPanel.setAttribute('aria-hidden', String(!open));
-    if (chatLauncher) chatLauncher.setAttribute('aria-expanded', String(open));
-    if (open) { var first = chatPanel.querySelector('a, button'); if (first) first.focus({ preventScroll: true }); }
-  };
-  if (chatLauncher) chatLauncher.addEventListener('click', function () { setChat(!chatPanel.classList.contains('is-open')); });
-  document.querySelectorAll('.chat-close').forEach(function (b) {
-    b.addEventListener('click', function () { setChat(false); if (chatLauncher) chatLauncher.focus(); });
-  });
-
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     closeDropdowns();
     if (doc.classList.contains('menu-open')) { setMenu(false); if (menuToggle) menuToggle.focus(); }
-    if (chatPanel && chatPanel.classList.contains('is-open')) { setChat(false); if (chatLauncher) chatLauncher.focus(); }
   });
 
   // Every Contact us link lands with the whole form in the middle of the screen,
@@ -98,7 +82,6 @@
   document.querySelectorAll('a[href="#contact"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       setMenu(false);
-      setChat(false);
       if (scrollToForm()) {
         e.preventDefault();
         if (history.replaceState) history.replaceState(null, '', '#contact');
@@ -118,30 +101,5 @@
     reveals.forEach(function (el) { io.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add('is-in'); });
-  }
-
-  // Built-in contact form: opens the visitor's email app with the message ready to send.
-  var form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      var get = function (name) { var f = form.elements[name]; return f ? f.value.trim() : ''; };
-      var name = get('name');
-      var lines = [
-        'Name: ' + name,
-        'Phone: ' + get('phone'),
-        'Email: ' + get('email'),
-        '',
-        get('message'),
-        '',
-        'Sent from the contact form on ' + location.href.split('#')[0]
-      ];
-      var to = form.getAttribute('data-to');
-      var href = 'mailto:' + to + '?subject=' + encodeURIComponent('Website enquiry from ' + name) + '&body=' + encodeURIComponent(lines.join('\n'));
-      window.location.href = href;
-      var status = form.querySelector('.form-status');
-      if (status) status.classList.add('is-visible');
-    });
   }
 })();
