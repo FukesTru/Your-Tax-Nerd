@@ -1,0 +1,27 @@
+# Until launch, keep every search engine and AI crawler out of the preview.
+# At go-live, delete the two lines below and uncomment the launch version under them.
+User-agent: *
+Disallow: /
+
+# Launch version
+# User-agent: *
+# Allow: /
+#
+# User-agent: GPTBot
+# Allow: /
+# User-agent: OAI-SearchBot
+# Allow: /
+# User-agent: ChatGPT-User
+# Allow: /
+# User-agent: ClaudeBot
+# Allow: /
+# User-agent: Claude-SearchBot
+# Allow: /
+# User-agent: PerplexityBot
+# Allow: /
+# User-agent: Google-Extended
+# Allow: /
+# User-agent: Bingbot
+# Allow: /
+#
+# Sitemap: https://www.yourtaxnerd.com/sitemap.xml

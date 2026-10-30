@@ -1,0 +1,62 @@
+{
+  "business": {
+    "name": "Your Tax Nerd",
+    "known_as": "Your Tax Nerd",
+    "legal_name": "The Tax Nerd, LLC",
+    "owner": "Michael Frey",
+    "street": "7 N Sussex St, Unit 103",
+    "city": "Dover",
+    "state": "NJ",
+    "postal_code": "07801",
+    "country": "US",
+    "phone": "(973) 202-3530",
+    "email": "mike@yourtaxnerd.com",
+    "website_current": "https://yourtaxnerd.com/",
+    "timezone": "America/New_York"
+  },
+  "online": {
+    "facebook": "",
+    "instagram": "",
+    "google_business_profile": "https://maps.google.com/?cid=4613734926900773453",
+    "google_review_link": ""
+  },
+  "hours": "Monday to Friday, 9 AM to 5 PM. Evenings and weekends by appointment.",
+  "areas_served": [
+    "Dover, NJ",
+    "Randolph, NJ",
+    "Rockaway, NJ",
+    "Wharton, NJ",
+    "Mine Hill, NJ",
+    "Denville, NJ",
+    "Anywhere online"
+  ],
+  "services": [
+    "Individual and family tax returns",
+    "Small business tax preparation",
+    "Bookkeeping",
+    "Tax planning and consulting"
+  ],
+  "booking_system_current": "Zoom Scheduler (scheduler.zoom.us/mike-frey-hjqmjt/30-mins-with-michael) linked from every button on the current site. The new site does not link it. Raise with the agency owner.",
+  "brand": {
+    "colour_main": "#14213D",
+    "colour_accent": "#C9A13B",
+    "colours_other": ["#0D1629", "#F7F3EC", "#7A5B12"],
+    "font": "Source Serif 4 (headings) and Inter (body)",
+    "notes": "Client said: navy blue and gold. Fonts: not sure. Navy #14213D is the main colour, gold #C9A13B the accent (on navy only, never as text on white), #7A5B12 is a dark gold for small labels on light backgrounds, #F7F3EC the tinted band, #0D1629 the footer. Logo format given as JPEG only, but no logo file was supplied, so the header uses a typographic wordmark with a simple glasses mark until the real logo arrives."
+  },
+  "images": [
+    { "file": "favicon.png", "note": "512x512 favicon, navy square with the gold glasses mark. Made for the site because no logo file was supplied" },
+    { "file": "apple-touch-icon.png", "note": "180x180 version of the favicon" },
+    { "file": "og-image.png", "note": "1200x630 social sharing card, navy with the wordmark, Dover NJ and the phone number" }
+  ],
+  "must_keep": "Client note: also owns www.yourtaxnerds.com and offered it if needed. At go-live, point it at the site as a permanent redirect to https://www.yourtaxnerd.com.",
+  "integrations": {
+    "form_embed": "",
+    "chat_widget": "",
+    "review_link": ""
+  },
+  "crm_location_id": "",
+  "vercel_project": "",
+  "preview_url": "https://yourtaxnerd.pages.dev",
+  "domain": "www.yourtaxnerd.com"
+}
