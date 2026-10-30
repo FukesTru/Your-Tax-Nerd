@@ -27,10 +27,13 @@ client still has to send or confirm is in `VERIFY.md` (written so it can be emai
   page inside the footer markers. The call and contact round buttons on phones are sized and placed
   to match the CRM chat button (58px, 20px from the bottom), sit above its greeting layer, and hide
   while the chat window is open.
-- The header uses a typographic wordmark and a glasses mark because no logo file was supplied.
-  Replace it, and `favicon.png`, `apple-touch-icon.png` and `og-image.png`, when the logo arrives.
-- The home hero uses Mike's portrait from the current website as its background, with an opening
-  animation (headline words rise in, the logo glasses draw in). It plays on every visit to the home
+- The look is a facelift of the client's earlier site, as the client asked: its blue header and yellow
+  buttons, Montserrat and Plus Jakarta Sans, light blue bands, navy testimonial band with its gold
+  ornament, service cards with a blue icon tab and yellow bar, FAQ pills, and the cartoon tax nerd
+  logo (`images/logo-primary.png`; the favicon is its mascot). Its stock photos, generated city
+  background and unverified numbers are deliberately not reused.
+- The home hero uses the earlier site's photo of Mike in an office as its background, with an opening
+  animation (the logo pops in, the headline words rise in). It plays on every visit to the home
   page, never blocks a tap, and is off when a visitor's device asks for reduced motion.
 - Reviews: the 3 Google reviews (5.0 rating, checked October 30, 2026) are on the home page and
   `/reviews/`, word for word. Add new reviews there, and update the rating and count, when they

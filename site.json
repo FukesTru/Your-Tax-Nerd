@@ -41,36 +41,50 @@
   ],
   "booking_system_current": "Zoom Scheduler (scheduler.zoom.us/mike-frey-hjqmjt/30-mins-with-michael) linked from every button on the current site. The new site does not link it. Raise with the agency owner.",
   "brand": {
-    "colour_main": "#14213D",
-    "colour_accent": "#C9A13B",
+    "colour_main": "#3A69B1",
+    "colour_accent": "#FFC402",
     "colours_other": [
-      "#0D1629",
-      "#F7F3EC",
-      "#7A5B12"
+      "#0F1E3D",
+      "#0A1428",
+      "#EAF2FF",
+      "#2F5FA7",
+      "#5AAEFF"
     ],
-    "font": "Source Serif 4 (headings) and Inter (body)",
-    "notes": "Client said: navy blue and gold. Fonts: not sure. Navy #14213D is the main colour, gold #C9A13B the accent (on navy only, never as text on white), #7A5B12 is a dark gold for small labels on light backgrounds, #F7F3EC the tinted band, #0D1629 the footer. Logo format given as JPEG only, but no logo file was supplied, so the header uses a typographic wordmark with a simple glasses mark. The current website uses a cartoon tax nerd superhero as its site icon (yourtaxnerd.com/wp-content/uploads/2026/03/siteicon-300x300.png); confirm with the client whether that is the logo."
+    "font": "Montserrat (headings and buttons) and Plus Jakarta Sans (body), the same fonts as the earlier site",
+    "notes": "Client said: navy blue and gold, and wants the site to look like the earlier yourtaxnerd.com, facelifted. Kept from the earlier site: brand blue #3A69B1 header, yellow #FFC402 buttons, Montserrat and Plus Jakarta Sans, light blue bands (#EAF2FF), navy testimonial band (#0F1E3D) with the gold ornament, service cards with a blue icon tab and yellow bar, FAQ pills, the cartoon tax nerd logo. #2F5FA7 is the darker blue for small labels on light backgrounds; #5AAEFF highlights words on navy (like \"Superpower\" on the earlier site); #0A1428 is the footer and top bar. Not reused from the earlier site: its stock photos, its generated city background, and its unverified numbers (999+ clients, 1,200+ returns, 10+ years, 98% retention)."
   },
   "images": [
     {
-      "file": "images/photo-mike-frey.jpg",
-      "note": "Mike Frey standing in a navy suit and blue tie, office background, portrait. From the current yourtaxnerd.com, where it sits beside his name. Home page hero background (right half on desktop, full hero under a navy wash on phones). 640px version: images/photo-mike-frey-640.jpg"
-    },
-    {
-      "file": "images/photo-mike-frey-headshot.jpg",
-      "note": "Square head and shoulders crop of the same photo. Owner card on the home and About pages"
+      "file": "images/logo-primary.png",
+      "note": "The client's logo from the earlier site (FF-01-2.png): cartoon tax nerd superhero above YOUR TAX NERD and TAX, ACCOUNTING, CFO ADVISORY. Transparent background, light text, made for dark or blue backgrounds. Header and footer"
     },
     {
       "file": "favicon.png",
-      "note": "512x512 favicon, navy square with the gold glasses mark. Made for the site because no logo file was supplied"
+      "note": "The logo mascot on a white rounded square (the earlier site's siteicon.png), 512x512"
     },
     {
       "file": "apple-touch-icon.png",
-      "note": "180x180 version of the favicon"
+      "note": "The same mascot icon, 180x180, on white"
     },
     {
-      "file": "og-image.png",
-      "note": "1200x630 social sharing card, navy with the wordmark, Dover NJ and the phone number"
+      "file": "images/photo-mike-frey-office.jpg",
+      "note": "Mike Frey standing in a navy suit in a bright office with city windows, wide. The earlier site's hero image. Home hero background, Mike on the right. 900px version: images/photo-mike-frey-office-900.jpg"
+    },
+    {
+      "file": "images/photo-mike-frey.jpg",
+      "note": "Mike Frey in a navy suit and blue tie, portrait. From the earlier site's Why Choose Me section. Home page owner section, with the blue block behind it"
+    },
+    {
+      "file": "images/photo-mike-frey-headshot.jpg",
+      "note": "Square head and shoulders crop of the portrait. About page owner card"
+    },
+    {
+      "file": "images/ornament-gold.png",
+      "note": "Gold scroll divider from the earlier site's testimonials band. Above the reviews heading on the navy band"
+    },
+    {
+      "file": "og-image.jpg",
+      "note": "1200x630 social sharing card: the office photo, the logo, the headline, Dover NJ and the phone number"
     }
   ],
   "must_keep": "Client note: also owns www.yourtaxnerds.com and offered it if needed. At go-live, point it at the site as a permanent redirect to https://www.yourtaxnerd.com.",
