@@ -18,7 +18,10 @@
     "facebook": "",
     "instagram": "",
     "google_business_profile": "https://maps.google.com/?cid=4613734926900773453",
-    "google_review_link": ""
+    "google_review_link": "https://search.google.com/local/writereview?placeid=ChIJ3bXV3egRo4wRTcK7rXhHB0A",
+    "google_place_id": "ChIJ3bXV3egRo4wRTcK7rXhHB0A",
+    "google_profile_name": "The Tax Nerd",
+    "google_rating": "5.0 from 3 reviews, checked October 30, 2026. The 3 reviews are on the home page and /reviews/ word for word; add new ones there when they arrive."
   },
   "hours": "Monday to Friday, 9 AM to 5 PM. Evenings and weekends by appointment.",
   "areas_served": [
@@ -40,14 +43,35 @@
   "brand": {
     "colour_main": "#14213D",
     "colour_accent": "#C9A13B",
-    "colours_other": ["#0D1629", "#F7F3EC", "#7A5B12"],
+    "colours_other": [
+      "#0D1629",
+      "#F7F3EC",
+      "#7A5B12"
+    ],
     "font": "Source Serif 4 (headings) and Inter (body)",
-    "notes": "Client said: navy blue and gold. Fonts: not sure. Navy #14213D is the main colour, gold #C9A13B the accent (on navy only, never as text on white), #7A5B12 is a dark gold for small labels on light backgrounds, #F7F3EC the tinted band, #0D1629 the footer. Logo format given as JPEG only, but no logo file was supplied, so the header uses a typographic wordmark with a simple glasses mark until the real logo arrives."
+    "notes": "Client said: navy blue and gold. Fonts: not sure. Navy #14213D is the main colour, gold #C9A13B the accent (on navy only, never as text on white), #7A5B12 is a dark gold for small labels on light backgrounds, #F7F3EC the tinted band, #0D1629 the footer. Logo format given as JPEG only, but no logo file was supplied, so the header uses a typographic wordmark with a simple glasses mark. The current website uses a cartoon tax nerd superhero as its site icon (yourtaxnerd.com/wp-content/uploads/2026/03/siteicon-300x300.png); confirm with the client whether that is the logo."
   },
   "images": [
-    { "file": "favicon.png", "note": "512x512 favicon, navy square with the gold glasses mark. Made for the site because no logo file was supplied" },
-    { "file": "apple-touch-icon.png", "note": "180x180 version of the favicon" },
-    { "file": "og-image.png", "note": "1200x630 social sharing card, navy with the wordmark, Dover NJ and the phone number" }
+    {
+      "file": "images/photo-mike-frey.jpg",
+      "note": "Mike Frey standing in a navy suit and blue tie, office background, portrait. From the current yourtaxnerd.com, where it sits beside his name. Home page hero background (right half on desktop, full hero under a navy wash on phones). 640px version: images/photo-mike-frey-640.jpg"
+    },
+    {
+      "file": "images/photo-mike-frey-headshot.jpg",
+      "note": "Square head and shoulders crop of the same photo. Owner card on the home and About pages"
+    },
+    {
+      "file": "favicon.png",
+      "note": "512x512 favicon, navy square with the gold glasses mark. Made for the site because no logo file was supplied"
+    },
+    {
+      "file": "apple-touch-icon.png",
+      "note": "180x180 version of the favicon"
+    },
+    {
+      "file": "og-image.png",
+      "note": "1200x630 social sharing card, navy with the wordmark, Dover NJ and the phone number"
+    }
   ],
   "must_keep": "Client note: also owns www.yourtaxnerds.com and offered it if needed. At go-live, point it at the site as a permanent redirect to https://www.yourtaxnerd.com.",
   "integrations": {

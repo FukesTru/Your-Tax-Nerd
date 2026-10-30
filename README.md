@@ -27,6 +27,13 @@ client still has to send or confirm is in `VERIFY.md` (written so it can be emai
   When `integrations` in `site.json` is filled in, replace both on every page.
 - The header uses a typographic wordmark and a glasses mark because no logo file was supplied.
   Replace it, and `favicon.png`, `apple-touch-icon.png` and `og-image.png`, when the logo arrives.
+- The home hero uses Mike's portrait from the current website as its background, with an opening
+  animation (headline words rise in, the logo glasses draw in). It plays on every visit to the home
+  page, never blocks a tap, and is off when a visitor's device asks for reduced motion.
+- Reviews: the 3 Google reviews (5.0 rating, checked October 30, 2026) are on the home page and
+  `/reviews/`, word for word. Add new reviews there, and update the rating and count, when they
+  arrive. "Leave us a Google review" links go to Google's write-a-review page until the CRM review
+  link is set in `site.json` `integrations.review_link`; then switch every one of them to it.
 
 ### At go-live
 

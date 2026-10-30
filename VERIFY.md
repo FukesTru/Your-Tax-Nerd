@@ -6,13 +6,13 @@ Your new website is built. Before it goes live, please send us the items in Part
 
 ## Part A. Information we still need
 
-1. **Your logo.** The form said JPEG only, but no file came through. Please send the best version you have, ideally a PNG with a transparent background. The site uses a simple "Your Tax Nerd" wordmark with a glasses symbol until then.
-2. **Photos.** A friendly photo of you (head and shoulders, or at your desk) would replace the "MF" initials circle on the home and About pages. Photos of your office or of you working with a client (with their permission) are welcome too. No stock photos are used on the site.
+1. **Your logo.** The form said JPEG only, but no file came through. Your current website uses a cartoon tax nerd superhero as its small site icon. Is that your logo? Please send the best version you have, ideally a PNG with a transparent background. The site uses a simple "Your Tax Nerd" wordmark with a glasses symbol until then.
+2. **Photos.** We used the portrait from your current website (you in a navy suit and blue tie) behind the headline on the home page and as your headshot on the About page. Please confirm it is you and that we may use it. More photos of you working, or of your office, are welcome. No stock photos are used on the site.
 3. **Your credentials.** Are you an Enrolled Agent (EA), a CPA, or a member of the IRS Annual Filing Season Program? Any licenses, training, associations or years of experience you want shown? The site says nothing about credentials until you tell us.
 4. **The year you started.** We found Your Tax Nerd listed as starting in December 2022. Is that right, and may we say so on the site?
 5. **Your prices.** The site says every client starts with a free 30-minute discovery call and gets a quote before work starts. If you have starting prices (for example, "personal returns from $X"), send them and we will add them to the Pricing page.
 6. **Your mobile app.** Your current site mentions your own mobile app. What is it called, and is there a download link we can add?
-7. **Reviews.** Please send the link where clients can leave you a Google review, and any real client reviews you have permission to quote word for word with the client's name. The reviews on your current website will not be used unless you confirm they are from real clients.
+7. **Reviews.** Your 3 Google reviews (from Andrea Barker, Solongo Oyunjamts and Marielsy Salas) are on the home page and a new Reviews page, word for word with the names as Google shows them. Marielsy's review is in Spanish, so it is shown in Spanish with an English translation underneath. The site also says you are rated 5.0 on Google. The reviews on your current website (Emily Rodriguez, David Thompson, Sarah Mitchell, James Carter) are not used, because we could not find them on Google. If they are from real clients, tell us and send their permission.
 8. **Social media.** The form said you have no Facebook or Instagram. If you set any up, send the links.
 9. **Your second domain.** You mentioned www.yourtaxnerds.com. We will forward it to www.yourtaxnerd.com at launch. Please confirm that is what you want.
 
