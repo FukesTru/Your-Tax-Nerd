@@ -529,9 +529,46 @@ html:has(chat-widget[data-active="true"]) .dock-btn, html:has(chat-widget[data-a
   .dock-blur, .dock-btn { display: none; }
 }
 
-/* Scroll motion. Content is visible without JavaScript; the hidden start state only applies once the script runs. */
-.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); transition-delay: calc(var(--d, 0) * 90ms); }
+/* Scroll motion. Sections arrive as they come into view: heading blocks build line by line, lists and
+   grids rise one item after another (site.js sets the order), cards lift into place, Mike's portrait is
+   revealed with a wipe, the ornament draws out and the rating counts up. Smooth and quick, nothing
+   bounces or spins, nothing delays reading or a tap. Content is visible without JavaScript, and all of it
+   is off when the visitor's device asks for reduced motion. */
+.js .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s var(--ease), transform 0.9s var(--ease); transition-delay: calc(var(--d, 0) * 80ms); }
 .js .reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal.cascade { opacity: 1; transform: none; }
+  .js .reveal.cascade > * { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.8s var(--ease); }
+  .js .reveal.cascade > :nth-child(2) { transition-delay: 0.1s; }
+  .js .reveal.cascade > :nth-child(3) { transition-delay: 0.2s; }
+  .js .reveal.cascade > :nth-child(4) { transition-delay: 0.3s; }
+  .js .reveal.cascade > :nth-child(n+5) { transition-delay: 0.4s; }
+  .js .reveal.cascade.is-in > * { opacity: 1; transform: none; }
+  .js .reveal.cascade .eyebrow::before { transform: scaleX(0); transform-origin: left; transition: transform 0.6s var(--ease) 0.25s; }
+  .js .reveal.cascade.is-in .eyebrow::before { transform: none; }
+
+  .js .card.reveal, .js .review-card.reveal, .js .steps li.reveal { transform: translateY(44px) scale(0.97); }
+  .js .card.reveal.is-in, .js .review-card.reveal.is-in, .js .steps li.reveal.is-in { transform: none; }
+  .js .steps li.reveal::before { opacity: 0; transform: scale(0.3); transition: opacity 0.4s var(--ease), transform 0.5s var(--ease); transition-delay: calc(var(--d, 0) * 80ms + 0.35s); }
+  .js .steps li.reveal.is-in::before { opacity: 1; transform: none; }
+  .js .reasons li.reveal::before { opacity: 0; transform: translateX(-16px); transition: opacity 0.5s var(--ease), transform 0.6s var(--ease); transition-delay: calc(var(--d, 0) * 80ms + 0.25s); }
+  .js .reasons li.reveal.is-in::before { opacity: 1; transform: none; }
+
+  .js .owner-figure.reveal { opacity: 1; transform: none; }
+  .js .owner-figure img { clip-path: inset(100% 0 0 0); transform: scale(1.12); transition: clip-path 1.1s var(--ease), transform 1.6s var(--ease); }
+  .js .owner-figure.is-in img { clip-path: inset(0 0 0 0); transform: none; }
+  .js .owner-figure::before { opacity: 0; transform: translate(-24px, -24px); transition: opacity 0.8s var(--ease) 0.5s, transform 1s var(--ease) 0.5s; }
+  .js .owner-figure.is-in::before { opacity: 1; transform: none; }
+  .js .owner-figure figcaption { opacity: 0; transform: translateY(12px); transition: opacity 0.6s var(--ease) 0.9s, transform 0.6s var(--ease) 0.9s; }
+  .js .owner-figure.is-in figcaption { opacity: 1; transform: none; }
+
+  .js .reviews-band .ornament { transform: scaleX(0); transition: opacity 0.6s var(--ease), transform 1s var(--ease); }
+
+  .js .page-hero .eyebrow, .js .page-hero h1, .js .page-hero .answer, .js .page-hero .btn-row { animation: intro-up 0.8s var(--ease) both; }
+  .js .page-hero h1 { animation-delay: 0.1s; }
+  .js .page-hero .answer { animation-delay: 0.2s; }
+  .js .page-hero .btn-row { animation-delay: 0.3s; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
@@ -540,11 +577,13 @@ html:has(chat-widget[data-active="true"]) .dock-btn, html:has(chat-widget[data-a
 
 /* 404 */
 .notfound { padding: var(--section) 0; }
-/* Home hero: Mike's office photo across the whole hero. On a phone it sits under a deep navy wash;
-   from 960px Mike stands on the right and the left side darkens, so the text always reads. */
+/* Home hero: Mike's photo behind the headline. On a phone the tall portrait version fills the hero under a
+   deep navy wash; from 960px the wide office version fills the right two thirds and fades into the navy on
+   the left, so the text always reads and the photo is never stretched far past its real size. */
 .hero { isolation: isolate; }
 .hero-media { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
-.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 20%; }
+.hero-media picture { display: block; width: 100%; height: 100%; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
 .hero-media::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(10, 20, 40, 0.74) 0%, rgba(10, 20, 40, 0.86) 38%, rgba(10, 20, 40, 0.95) 100%);
@@ -554,10 +593,11 @@ html:has(chat-widget[data-active="true"]) .dock-btn, html:has(chat-widget[data-a
   .hero > .wrap { width: 100%; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-copy { max-width: 620px; }
-  .hero-media img { object-position: 64% 30%; }
+  .hero-media { left: 34%; }
+  .hero-media img { object-position: 60% 28%; }
   .hero-media::after {
-    background: linear-gradient(90deg, rgba(10, 20, 40, 0.94) 0%, rgba(10, 20, 40, 0.82) 36%, rgba(10, 20, 40, 0.28) 60%, rgba(10, 20, 40, 0) 80%),
-      linear-gradient(0deg, rgba(10, 20, 40, 0.5) 0%, rgba(10, 20, 40, 0) 30%);
+    background: linear-gradient(90deg, var(--navy) 0%, rgba(15, 30, 61, 0.88) 16%, rgba(15, 30, 61, 0.5) 32%, rgba(15, 30, 61, 0) 52%),
+      linear-gradient(0deg, rgba(15, 30, 61, 0.5) 0%, rgba(15, 30, 61, 0) 30%);
   }
 }
 @media (min-width: 1180px) { .hero-copy { max-width: 660px; } }
@@ -576,24 +616,46 @@ html:has(chat-widget[data-active="true"]) .dock-btn, html:has(chat-widget[data-a
 .hero-goals li { display: flex; align-items: center; gap: 10px; font: 600 0.9375rem/1.25 var(--font-head); color: var(--white); }
 .hero-goals .icon { width: 28px; height: 28px; flex: none; color: var(--blue-bright); }
 
-/* Opening animation, home page only. It plays on every visit, finishes in about a second and a half,
-   never blocks a tap, and is off for anyone who asks their device for reduced motion. */
+/* Opening animation, home page only (as on the Valezar site). The white intro panel shows the
+   light-background logo, a yellow rule draws under it, then the panel lifts away and the hero plays behind
+   it: the logo pops in, the headline words rise in, the photo, buttons and goals settle. About 2 seconds in
+   all, and CSS alone finishes it, so it never hangs without the script. A tap, scroll or key press skips it
+   (site.js), the call and contact buttons stay usable, and anyone whose device asks for reduced motion sees
+   none of it. --io is how long the hero waits for the panel; it drops to 0 when the intro is skipped. */
 @keyframes intro-rise { from { transform: translateY(110%); } to { transform: none; } }
 @keyframes intro-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes intro-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes intro-pop { from { opacity: 0; transform: scale(0.82) rotate(-4deg); } to { opacity: 1; transform: none; } }
 @keyframes intro-photo { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: no-preference) {
-  .js .home .hero-media img { animation: intro-photo 1.6s var(--ease) both; }
-  .js .home .hero .eyebrow { animation: intro-up 0.6s var(--ease) 0.05s both; }
-  .js .home .hero h1 .w > span { animation: intro-rise 0.8s var(--ease) both; animation-delay: calc(150ms + var(--i) * 60ms); }
-  .js .home .hero-goals { animation: intro-up 0.7s var(--ease) 0.8s both; }
-  .js .home .hero .lead { animation: intro-up 0.7s var(--ease) 0.45s both; }
-  .js .home .hero .btn-row { animation: intro-up 0.7s var(--ease) 0.55s both; }
-  .js .home .hero-proof { animation: intro-up 0.7s var(--ease) 0.7s both; }
-  .js .home .hero::after { transform-origin: left; animation: intro-grow 1.1s var(--ease) 0.3s both; }
-  .js .home .brand img { animation: intro-pop 0.9s var(--ease) 0.05s both; }
+.intro {
+  position: fixed; inset: 0; z-index: 2147483646; display: grid; place-items: center;
+  background: var(--white); border-bottom: 4px solid var(--gold); box-shadow: 0 18px 40px -20px rgba(10, 20, 40, 0.45);
+  animation: intro-lift 0.7s cubic-bezier(0.7, 0, 0.2, 1) 1s forwards;
 }
+.intro-inner { display: grid; justify-items: center; gap: 26px; animation: intro-out 0.35s ease 0.9s forwards; }
+.intro img { width: min(420px, 78vw); height: auto; opacity: 0; transform: translateY(12px) scale(0.96); animation: intro-in 0.7s var(--ease) 0.05s forwards; }
+.intro-rule { display: block; width: 140px; height: 3px; border-radius: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left center; animation: intro-rule 0.5s var(--ease) 0.4s forwards; }
+.intro.is-skipped { animation: intro-fade 0.2s ease forwards; }
+@keyframes intro-in { to { opacity: 1; transform: none; } }
+@keyframes intro-rule { to { transform: scaleX(1); } }
+@keyframes intro-out { to { opacity: 0; transform: translateY(-8px); } }
+@keyframes intro-lift { to { transform: translateY(-100%); visibility: hidden; } }
+@keyframes intro-fade { to { opacity: 0; visibility: hidden; } }
+@keyframes intro-late { from { opacity: 0; } to { opacity: 1; } }
+.has-intro { --io: 1.05s; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .home .hero-media img { animation: intro-photo 1.6s var(--ease) calc(var(--io, 0s) * 0.75) both; }
+  .js .home .hero .eyebrow { animation: intro-up 0.6s var(--ease) calc(var(--io, 0s) + 0.05s) both; }
+  .js .home .hero h1 .w > span { animation: intro-rise 0.8s var(--ease) both; animation-delay: calc(var(--io, 0s) + 150ms + var(--i) * 60ms); }
+  .js .home .hero .lead { animation: intro-up 0.7s var(--ease) calc(var(--io, 0s) + 0.45s) both; }
+  .js .home .hero .btn-row { animation: intro-up 0.7s var(--ease) calc(var(--io, 0s) + 0.55s) both; }
+  .js .home .hero-proof { animation: intro-up 0.7s var(--ease) calc(var(--io, 0s) + 0.7s) both; }
+  .js .home .hero-goals { animation: intro-up 0.7s var(--ease) calc(var(--io, 0s) + 0.8s) both; }
+  .js .home .hero::after { transform-origin: left; animation: intro-grow 1.1s var(--ease) calc(var(--io, 0s) + 0.3s) both; }
+  .js .home .brand img { animation: intro-pop 0.9s var(--ease) calc(var(--io, 0s) + 0.05s) both; }
+  .js .has-intro .dock-btn, .js .has-intro .dock-blur { animation: intro-late 0.5s var(--ease) 1.5s both; }
+}
+@media (prefers-reduced-motion: reduce) { .intro { display: none; } .has-intro { --io: 0s; } }
 
 /* Owner headshot */
 .owner-photo { display: block; width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); margin-bottom: 20px; }

@@ -6,6 +6,26 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isMobile = function () { return window.matchMedia('(max-width: 1179px)').matches; };
 
+  // Opening transition on the home page: any tap, scroll or key press skips it, a link to a spot on the
+  // page skips it, and it removes itself when done.
+  var intro = document.querySelector('.intro');
+  if (intro) {
+    var skipEvents = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
+    var done = function () {
+      if (intro.isConnected) intro.remove();
+      skipEvents.forEach(function (name) { window.removeEventListener(name, skip); });
+    };
+    var skip = function () {
+      intro.classList.add('is-skipped');
+      document.body.classList.remove('has-intro');
+      skipEvents.forEach(function (name) { window.removeEventListener(name, skip); });
+    };
+    skipEvents.forEach(function (name) { window.addEventListener(name, skip, { passive: true }); });
+    intro.addEventListener('animationend', function (e) { if (e.target === intro) done(); });
+    // Jumping straight to a spot on the page, or a slow script that arrives after the panel lifted
+    if (location.hash || reduceMotion || performance.now() > 1900) { document.body.classList.remove('has-intro'); done(); }
+  }
+
   // Header gets a line and a shadow once the page scrolls.
   var onScroll = function () { if (header) header.classList.toggle('is-scrolled', window.scrollY > 8); };
   onScroll();
@@ -90,16 +110,65 @@
   });
   if (location.hash === '#contact') window.addEventListener('load', function () { setTimeout(scrollToForm, 60); });
 
-  // Sections settle into place as they come into view.
+  // Scroll motion. Lists and grids rise in one item after another, heading blocks build line by line
+  // (the styles live in site.css), and the rating counts up when it arrives.
+  var STAGGER = '.grid, .check-list, .steps, .reasons, .chips, .faq, .proof-list, .doc-list, .rows, .way-list, .footer-cols';
+  document.querySelectorAll(STAGGER).forEach(function (list) {
+    if (list.closest('.hero')) return;
+    list.classList.remove('reveal');
+    Array.prototype.forEach.call(list.children, function (item, i) {
+      item.classList.add('reveal');
+      item.style.setProperty('--d', String(Math.min(i, 7)));
+    });
+  });
   var reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(function (el) {
+    var first = el.firstElementChild;
+    if (el.classList.contains('section-head') || (first && first.classList.contains('eyebrow')) || (first && first.classList.contains('ornament'))) el.classList.add('cascade');
+  });
+  var countUp = function (el) {
+    var target = parseFloat(el.textContent);
+    if (isNaN(target)) return;
+    var start = null;
+    var step = function (t) {
+      if (start === null) start = t;
+      var p = Math.min(1, (t - start) / 1100);
+      el.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(1);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
   if (!reduceMotion && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        entry.target.querySelectorAll('.rating-score').forEach(countUp);
+        io.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     reveals.forEach(function (el) { io.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  // Home hero: as the page scrolls, the photo drifts down slower than the page and the headline lifts away.
+  var heroMedia = document.querySelector('.home .hero-media');
+  var heroCopy = document.querySelector('.home .hero-copy');
+  if (heroMedia && !reduceMotion) {
+    var ticking = false;
+    var drift = function () {
+      ticking = false;
+      var h = heroMedia.parentElement.offsetHeight;
+      var y = Math.min(window.scrollY, h);
+      heroMedia.style.transform = 'translate3d(0, ' + (y * 0.3).toFixed(1) + 'px, 0)';
+      if (heroCopy) {
+        heroCopy.style.transform = 'translate3d(0, ' + (y * -0.12).toFixed(1) + 'px, 0)';
+        heroCopy.style.opacity = String(Math.max(0, 1 - y / (h * 0.9)).toFixed(3));
+      }
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(drift); }
+    }, { passive: true });
   }
 })();

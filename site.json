@@ -59,6 +59,10 @@
       "note": "The client's logo from the earlier site (FF-01-2.png): cartoon tax nerd superhero above YOUR TAX NERD and TAX, ACCOUNTING, CFO ADVISORY. Transparent background, light text, made for dark or blue backgrounds. Header and footer"
     },
     {
+      "file": "images/logo-wordmark.png",
+      "note": "The client's logo for light backgrounds (the earlier site's FF.png, also sent by the operator): YOUR in gold, TAX NERD in dark letters, TAX, ACCOUNTING, CFO ADVISORY in blue. Transparent background. Home page intro panel and the structured data logo. Never on blue or navy, where the dark letters disappear"
+    },
+    {
       "file": "favicon.png",
       "note": "The logo mascot on a white rounded square (the earlier site's siteicon.png), 512x512"
     },
@@ -68,7 +72,11 @@
     },
     {
       "file": "images/photo-mike-frey-office.jpg",
-      "note": "Mike Frey standing in a navy suit in a bright office with city windows, wide. The earlier site's hero image. Home hero background, Mike on the right. 900px version: images/photo-mike-frey-office-900.jpg"
+      "note": "Mike Frey standing in a navy suit in a bright office with city windows, wide, 1536x1024 (the largest version the earlier site has). Home hero on screens 960px and wider, filling the right two thirds"
+    },
+    {
+      "file": "images/photo-mike-frey-portrait.jpg",
+      "note": "The portrait of Mike at its full 1333x2000. Home hero on phones and tablets, where the tall shape fits the screen without blowing the photo up"
     },
     {
       "file": "images/photo-mike-frey.jpg",

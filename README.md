@@ -32,8 +32,15 @@ client still has to send or confirm is in `VERIFY.md` (written so it can be emai
   ornament, service cards with a blue icon tab and yellow bar, FAQ pills, and the cartoon tax nerd
   logo (`images/logo-primary.png`; the favicon is its mascot). Its stock photos, generated city
   background and unverified numbers are deliberately not reused.
-- The home hero uses the earlier site's photo of Mike in an office as its background, with an opening
-  animation (the logo pops in, the headline words rise in). It plays on every visit to the home
+- The home page opens with an intro panel (as on the Valezar site): the light-background logo
+  (`images/logo-wordmark.png`) settles in on white, a yellow rule draws, the panel lifts away, then the
+  hero plays (the header logo pops in, the headline words rise in). A tap, scroll or key press skips it.
+- The home hero uses the earlier site's photos of Mike: the wide office photo on screens 960px and wider,
+  the tall portrait on phones, each at its full size so it stays sharp. A higher resolution original from
+  the client would make it sharper still on large retina screens.
+- Scroll motion on every page: heading blocks build line by line, lists and grids rise one item after
+  another, Mike's portrait is revealed with a wipe, the ornament draws out, the rating counts up, and the
+  home hero photo drifts as the page scrolls. It plays on every visit to the home
   page, never blocks a tap, and is off when a visitor's device asks for reduced motion.
 - Reviews: the 3 Google reviews (5.0 rating, checked October 30, 2026) are on the home page and
   `/reviews/`, word for word. Add new reviews there, and update the rating and count, when they
